@@ -11,13 +11,14 @@ always @(*)
 begin
   if(push & !pop)
   begin
-    stack[stack_pointer] = address_in;
-    stack_pointer = stack_pointer + 5'b0_0001;
+    stack[stack_pointer[4:0]] = address_in;
+    stack_pointer[4:0] = stack_pointer[4:0] + 5'b0_0001;
   end
   else if(!push & pop)
   begin
-    stack_pointer = stack_pointer - 5'b0_0001;
-    address_out = stack[stack_pointer];
+    stack[stack_pointer[4:0]][9:0] = 10'b00_0000_0000;
+    stack_pointer[4:0] = stack_pointer[4:0] - 5'b0_0001;
+    address_out = stack[stack_pointer[4:0]];
   end
 end
 endmodule
