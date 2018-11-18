@@ -1,6 +1,6 @@
 module Register_Pointer(
-    input   enable, increment, decrement,
-    output  [9:0]   R_ADR = 10'h000;
+    input               enable, increment, decrement,
+    output  reg [9:0]   R_ADR = 10'h000
 );
 
 always @(posedge increment or posedge decrement)

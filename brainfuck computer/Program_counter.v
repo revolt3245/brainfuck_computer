@@ -1,7 +1,7 @@
 module Program_counter(
     input               enable, clk, branch,
     input       [9:0]   B_ADR,
-    output  reg [9:0]   ADR = 10'h000;
+    output  reg [9:0]   ADR = 10'h000
 );
 always @(posedge clk)
 begin
